@@ -123,10 +123,10 @@
             text-transform: uppercase; margin-top: 1.5rem; border: 1px solid var(--gold);
         }
 
-        /* --- SONIC CONTROL (Bottom Right) --- */
+        /* --- SONIC CONTROL (TOP RIGHT) --- */
         .sonic-control {
             position: fixed;
-            bottom: 20px; right: 20px;
+            top: 20px; right: 20px;
             display: flex; align-items: center; gap: 10px;
             z-index: 1000;
             background: rgba(13, 10, 11, 0.9);
@@ -140,8 +140,8 @@
 
         .sonic-btn {
             background: transparent; border: none; color: var(--gold);
-            font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.1em;
-            cursor: pointer; width: 100px; text-align: center;
+            font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; letter-spacing: 0.1em;
+            cursor: pointer; width: 120px; text-align: center;
         }
 
         .equalizer {
@@ -166,13 +166,12 @@
 
         /* --- HECKLE TOAST --- */
         .heckle-toast {
-            position: fixed; top: 20px; left: 20px;
+            position: fixed; top: 80px; left: 20px;
             background: var(--black); border: 1px solid var(--neon); border-radius: 8px;
             padding: 0.75rem 1rem; max-width: 280px; z-index: 1000;
             transform: translateX(-150%); opacity: 0;
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 0 15px rgba(201, 75, 124, 0.2);
-            /* Visual indicator that audio is playing */
             border-left: 5px solid var(--neon); 
         }
 
@@ -210,52 +209,119 @@
         .option-badge {
             position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
             background: var(--gold); color: var(--black); font-size: 0.65rem; font-weight: 700;
-            padding: 0.3rem 0.6rem; letter-spacing: 0.1em;
+            padding: 0.3rem 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
         }
         .option-price { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: var(--gold); }
         .option-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; margin: 0.5rem 0; color: var(--white); }
-        .option-desc { font-size: 0.85rem; color: var(--white-dim); line-height: 1.5; }
+        .option-desc { font-size: 0.85rem; color: var(--white-dim); line-height: 1.5; margin-bottom: 1rem; }
         
+        .password-note {
+            background: rgba(212, 168, 74, 0.1);
+            border: 1px solid var(--gold);
+            padding: 0.75rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--gold-light);
+        }
+
+        .password-note strong {
+            color: var(--gold);
+            font-size: 1.1rem;
+            display: block;
+            margin-top: 0.25rem;
+        }
+
         .option-button {
             display: inline-block; background: var(--gold); color: var(--black);
             font-family: 'Bebas Neue', sans-serif; font-size: 1rem; padding: 0.75rem 1.5rem;
             border: none; cursor: pointer; text-decoration: none; margin-top: 1.5rem;
+            position: relative; z-index: 20; transform: translateZ(0);
         }
-        .option-button {
-    position: relative;
-    z-index: 20; 
-    transform: translateZ(0);
-}
         .option-button:hover { background: var(--gold-light); transform: scale(1.05); }
-        .option-button.disabled { background: var(--purple); color: var(--white-dim); cursor: default; }
+        
+        .tip-link {
+            display: block;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: var(--white-dim);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .tip-link:hover { color: var(--gold); }
+
+        /* Waitlist Form Styling */
+        .waitlist-form {
+            margin-top: 1.5rem;
+        }
+
+        .waitlist-form input[type="email"] {
+            width: 100%;
+            max-width: 300px;
+            padding: 0.75rem;
+            font-size: 0.9rem;
+            background: rgba(13, 10, 11, 0.5);
+            border: 1px solid var(--purple);
+            color: var(--white);
+            margin-bottom: 0.75rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .waitlist-form input[type="email"]:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        .waitlist-form button {
+            background: var(--gold);
+            color: var(--black);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1rem;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+        }
+
+        .waitlist-form button:hover {
+            background: var(--gold-light);
+            transform: scale(1.05);
+        }
 
         .faq-section { max-width: 600px; margin: 3rem auto 0; padding: 0 1rem; }
         .faq-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--gold); text-align: center; margin-bottom: 1rem; }
         .faq-item { border-bottom: 1px solid var(--purple); padding: 1rem 0; }
         .faq-question { display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 500; }
         .faq-question:hover { color: var(--gold); }
+        .faq-toggle { font-size: 1.5rem; color: var(--neon); transition: transform 0.3s ease; }
         .faq-answer { max-height: 0; overflow: hidden; transition: all 0.3s ease; color: var(--white-dim); font-size: 0.9rem; line-height: 1.6; }
-        .faq-item.open .faq-answer { max-height: 200px; padding-top: 1rem; }
+        .faq-item.open .faq-answer { max-height: 300px; padding-top: 1rem; }
+        .faq-item.open .faq-toggle { transform: rotate(45deg); }
 
         /* --- FOOTER & BUILT BY --- */
         .built-panel { background: linear-gradient(180deg, var(--black) 0%, var(--purple-deep) 100%); padding: 4rem 2rem; text-align: center; }
         .built-label { font-size: 0.7rem; letter-spacing: 0.3em; color: var(--white-dim); text-transform: uppercase; margin-bottom: 1rem; }
-        .built-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 2rem; }
+        .built-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 2rem; align-items: center; }
         .built-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; color: var(--white); opacity: 0.9; text-decoration: none; transition: 0.3s; }
         .built-logo:hover { color: var(--gold); opacity: 1; }
+        .built-logo .year { color: var(--gold); }
         .consent-note { font-size: 0.75rem; color: var(--white-dim); max-width: 500px; margin: 0 auto; line-height: 1.6; padding: 1rem; border: 1px solid var(--purple); }
         
         .site-footer { background: var(--black-pure); padding: 2rem; text-align: center; border-top: 1px solid var(--purple); }
-        .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem; }
-        .footer-link { font-size: 0.75rem; color: var(--white-dim); text-decoration: none; text-transform: uppercase; transition: color 0.3s; }
+        .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .footer-link { font-size: 0.75rem; color: var(--white-dim); text-decoration: none; text-transform: uppercase; transition: color 0.3s; letter-spacing: 0.1em; }
         .footer-link:hover { color: var(--gold); }
         .footer-copy { font-size: 0.7rem; color: var(--white-dim); opacity: 0.6; }
 
         @media (max-width: 600px) {
             .hero-panel { padding: 1.5rem; }
             .show-title { font-size: 18vw; }
-            .sonic-control { bottom: 10px; right: 10px; padding: 8px 12px; }
-            .heckle-toast { left: 10px; right: 10px; max-width: none; }
+            .sonic-control { top: 10px; right: 10px; padding: 8px 12px; }
+            .sonic-btn { font-size: 0.75rem; width: 100px; }
+            .heckle-toast { top: 70px; left: 10px; right: 10px; max-width: none; }
+            .call-panel { padding: 3rem 1.5rem; }
+            .options-panel { padding: 3rem 1rem; }
+            .footer-links { gap: 1rem; }
         }
     </style>
 </head>
@@ -272,7 +338,7 @@
             <source src="assets/switch-click.mp3" type="audio/mpeg">
         </audio>
         <audio id="sfx-voice">
-            </audio>
+        </audio>
     </div>
 
     <div class="heckle-toast" id="heckleToast">
@@ -287,7 +353,7 @@
             <div class="bar"></div>
             <div class="bar"></div>
         </div>
-        <button id="toggleAudio" class="sonic-btn">TURN ON VIBE</button>
+        <button id="toggleAudio" class="sonic-btn">HEAR ME OUT</button>
     </div>
 
     <section class="hero-panel">
@@ -316,18 +382,29 @@
     <section class="options-panel">
         <div class="options-grid">
             <div class="option-card featured">
-                <div class="option-badge">Preview Now</div>
+                <div class="option-badge">Call Right Now</div>
                 <div class="option-price">FREE</div>
-                <div class="option-title">BWIC LAFF FEST LINE</div>
-                <div class="option-desc">Tickets, show times, lineup info. Joanna will fill you in on Double Shift too. Password "CORNBREAD".</div>
-                <a href="https://ko-fi.com/doubleshift" class="option-button ripple-btn">KEEP HER TALKING</a>
+                <div class="option-title">TASTE TEST</div>
+                <div class="option-desc">Call me right now. Get Laff Fest info - tickets, lineup, show times. I'll tell you about Double Shift too. No charge. No catch.</div>
+                <div class="password-note">
+                    Say the password:<br>
+                    <strong>CORNBREAD</strong>
+                </div>
+                <a href="tel:+19092562662" class="option-button ripple-btn">CALL (909) 256-2662</a>
+                <a href="https://ko-fi.com/doubleshift" target="_blank" class="tip-link">Wanna tip Joanna? Buy her a coffee →</a>
             </div>
             
             <div class="option-card">
+                <div class="option-badge">Coming February 2026</div>
                 <div class="option-price">$9</div>
                 <div class="option-title">THE FULL SHOW</div>
-                <div class="option-desc">Three minutes. Just you and Joanna. Unscripted. Unfiltered. Your moment with her.</div>
-                <span class="option-button disabled">NEXT STOP: FEBRUARY</span>
+                <div class="option-desc">Three minutes. No script. No filter. Just you and me. I might roast you. I might read you. No two shows the same.</div>
+                
+                <!-- Waitlist Form -->
+                <form class="waitlist-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit" class="ripple-btn">JOIN THE WAITLIST</button>
+                </form>
             </div>
         </div>
 
@@ -335,18 +412,35 @@
             <div class="faq-title">Questions?</div>
             
             <div class="faq-item">
-                <div class="faq-question"><span>Is the line actually free?</span><span class="faq-toggle">+</span></div>
-                <div class="faq-answer">Yes. Call, listen, hang up. No charge. The $9 full show launches Feb 2026.</div>
+                <div class="faq-question">
+                    <span>Is the line actually free?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">Yes, Friend. Call me right now. Listen. Hang up if you want. It's free. For real. No tricks. The $9 full experience? That's coming February 2026.</div>
             </div>
             
             <div class="faq-item">
-                <div class="faq-question"><span>Why $9?</span><span class="faq-toggle">+</span></div>
-                <div class="faq-answer">Because Joanna's voice is owned, not rented. Every dollar supports Black women building tech on their own terms.</div>
+                <div class="faq-question">
+                    <span>Why $9?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">Because my voice is OWNED, not rented. Every dollar goes to Black women building AI on our own terms. Plus? I'm dope. You're dope. We can all be dope together. But dope costs $9.</div>
             </div>
 
             <div class="faq-item">
-                <div class="faq-question"><span>Is this really Joanna?</span><span class="faq-toggle">+</span></div>
-                <div class="faq-answer">It's her voice double. Built from her voice, her boundaries. Closest thing to Joanna at 2am without actually being her.</div>
+                <div class="faq-question">
+                    <span>What if the line is busy?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">OMG, if I'm busy? Leave a message. Or call back. I'm blessed and highly favored - which means people wanna talk to me. I'll get to you though. Promise.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Is this really Joanna?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">It's my voice double. Built from MY voice, MY personality, MY boundaries. I approved every single word she can say. So yeah - it's as close to me as you're gonna get at 2am without me actually answering my phone at 2am. Which I won't.</div>
             </div>
         </div>
     </section>
@@ -356,10 +450,10 @@
         <div class="built-logos">
             <span class="built-logo">BLACK WOMEN IN COMEDY LAFF FEST <span class="year">YEAR 7</span></span>
             <span class="built-logo">×</span>
-            <a href="https://sisterhoodsitin.com"class="built-logo">DIGITAL KITCHEN</a>
+            <a href="https://sisterhoodsitin.com" target="_blank" class="built-logo">DIGITAL KITCHEN</a>
         </div>
         <div class="consent-note">
-            Joanna DD is an AI voice experience built with the full consent and participation of comedian Joanna Briley. Her voice is licensed, protected, and owned. This is what ethical AI looks like.
+            This is me - Joanna Briley - and I consented to ALL of this. My voice is licensed, protected, and OWNED by me. This AI? I built her with Digital Kitchen. My boundaries. My voice. My dopeness. This is what ethical AI looks like when Black women are in charge.
         </div>
     </section>
 
@@ -374,9 +468,6 @@
 
     <script>
         // --- 1. DATA: HECKLES (TEXT + AUDIO) ---
-        // Ensure you have files named heckle-1.mp3, heckle-2.mp3 etc in your assets folder
-        // --- 1. DATA: HECKLES (TEXT + AUDIO) ---
-        // Ensure you have files named heckle-1.mp3 through heckle-10.mp3 in your assets folder
         const heckleData = [
             { text: "Hey friend... I'm here. You coming or what?", audio: "assets/heckle-1.mp3" },
             { text: "Blessed and highly favored. We got this.", audio: "assets/heckle-2.mp3" },
@@ -394,31 +485,31 @@
         const bgm = document.getElementById('bgm');
         const sfxHover = document.getElementById('sfx-hover');
         const sfxClick = document.getElementById('sfx-click');
-        const sfxVoice = document.getElementById('sfx-voice'); // Dynamic player
+        const sfxVoice = document.getElementById('sfx-voice');
         const toggleBtn = document.getElementById('toggleAudio');
         const sonicPanel = document.querySelector('.sonic-control');
 
         // Volume mixing
-        bgm.volume = 0.3;      // Background low
-        sfxHover.volume = 0.05; // Very subtle static
-        sfxClick.volume = 0.4;  // Sharp click
-        sfxVoice.volume = 0.9;  // Voice loud and clear
+        bgm.volume = 0.3;
+        sfxHover.volume = 0.05;
+        sfxClick.volume = 0.4;
+        sfxVoice.volume = 0.9;
 
         let isAudioOn = false;
 
-        // Toggle Vibe
+        // Toggle Audio
         toggleBtn.addEventListener('click', () => {
             isAudioOn = !isAudioOn;
             
             if (isAudioOn) {
                 bgm.play().catch(e => console.log("Browser blocked autoplay"));
-                toggleBtn.textContent = "TURN OFF";
+                toggleBtn.textContent = "I'M TALKING";
                 sonicPanel.classList.add('active');
-                sfxClick.play(); // Confirm activation
+                sfxClick.play();
             } else {
                 bgm.pause();
-                sfxVoice.pause(); // Cut off voice if user kills audio
-                toggleBtn.textContent = "TURN ON VIBE";
+                sfxVoice.pause();
+                toggleBtn.textContent = "HEAR ME OUT";
                 sonicPanel.classList.remove('active');
             }
         });
@@ -462,7 +553,7 @@
             btn.addEventListener('mouseenter', () => playSfx(sfxHover));
         });
 
-        // Attach sound only to FAQ
+        // Attach sound to FAQ
         document.querySelectorAll('.faq-question').forEach(el => {
             el.addEventListener('mouseenter', () => playSfx(sfxHover));
             el.addEventListener('click', () => playSfx(sfxClick));
@@ -474,27 +565,20 @@
         let heckleIndex = 0;
 
         function showHeckle() {
-            // Get current heckle data
             const currentHeckle = heckleData[heckleIndex];
             
-            // Update Text
             toastText.textContent = `"${currentHeckle.text}"`;
-            
-            // Show Visual
             toast.classList.add('show');
             
-            // Play Audio (If Vibe is ON)
             if (isAudioOn) {
                 sfxVoice.src = currentHeckle.audio;
-                sfxVoice.play().catch(e => console.log("Audio prevent"));
+                sfxVoice.play().catch(e => console.log("Audio prevented"));
             }
             
-            // Hide after 4 seconds
             setTimeout(() => {
                 toast.classList.remove('show');
             }, 4000);
             
-            // Cycle index
             heckleIndex = (heckleIndex + 1) % heckleData.length;
         }
 
@@ -502,7 +586,7 @@
         setTimeout(showHeckle, 5000);
         setInterval(showHeckle, 20000);
 
-        // FAQ Toggle Logic (Preserved)
+        // FAQ Toggle Logic
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
                 const item = question.parentElement;
